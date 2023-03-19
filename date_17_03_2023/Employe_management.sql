@@ -42,7 +42,7 @@ CREATE TABLE employees(
   hire_date date,
   job_id integer NOT NULL,
   salary integer,
-  manager_id integer NOT NULL,
+  manager_id integer,
   department_id integer,
   FOREIGN KEY (job_id) REFERENCES jobs(job_id),
   FOREIGN KEY (manager_id) REFERENCES employees(employee_id),
