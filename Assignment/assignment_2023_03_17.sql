@@ -1,3 +1,5 @@
+--Using PostgreSql
+
 CREATE TABLE jobs(
   job_id SERIAL PRIMARY KEY,
   job_title varchar(255),
