@@ -32,4 +32,4 @@ SELECT first_name,manager_id,salary FROM employees WHERE department_id = 101 ORD
 -- Find all the first_name that start with the letter “A”, and find all the last_name
 -- that have “TH” in the 2nd and 3rd positions.
 
-SELECT first_name,last_name FROM employees WHERE first_name LIKE 'A%' AND last_name LIKE '_TH';
+SELECT first_name,last_name FROM employees WHERE first_name LIKE 'A%' AND last_name LIKE '_TH%';
