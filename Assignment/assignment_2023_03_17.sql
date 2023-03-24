@@ -6,19 +6,19 @@ CREATE TABLE jobs(
   min_salary integer,
   max_salary integer,
   CHECK(min_salary > 1000)
-)
+);
 
 CREATE TABLE regions(
   region_id SERIAL PRIMARY KEY,
   region_name varchar(255)
-)
+);
 
 CREATE TABLE countries(
   country_id SERIAL PRIMARY KEY,
   country_name varchar(255),
   region_id integer NOT NULL,
   FOREIGN KEY (region_id) REFERENCES regions(region_id)
-)
+);
 
 CREATE TABLE locations(
   location_id SERIAL PRIMARY KEY,
@@ -76,7 +76,7 @@ INSERT INTO locations(street_address,postal_code,city,state_province,country_id)
 ('0 STREET','723300','BEJING','HUWAI',5),('38 STREET','939129','BUDHAPIST','SANGACHI',4);
 
 --Inserting data in department
-INSERT INTO department(department_name,location_id) VALUES ('HR',2),('MARKETING',4),('SLAES',3),('OPERATION',1),('ADMIN','5');
+INSERT INTO departments(department_name,location_id) VALUES ('HR',2),('MARKETING',4),('SLAES',3),('OPERATION',1),('ADMIN','5');
 
 --Inserting data in employees table
 INSERT INTO employees(first_name,last_name,email,phone_number,hire_date,job_id,salary,manager_id,department_id) VALUES
