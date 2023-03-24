@@ -4,8 +4,7 @@ CREATE TABLE jobs(
   job_id SERIAL PRIMARY KEY,
   job_title varchar(255),
   min_salary integer,
-  max_salary integer,
-  CHECK(min_salary > 1000)
+  max_salary integer
 );
 
 CREATE TABLE regions(
@@ -23,7 +22,7 @@ CREATE TABLE countries(
 CREATE TABLE locations(
   location_id SERIAL PRIMARY KEY,
   street_address varchar(255),
-  postal_code varchar(10),
+  postal_code varchar(15),
   city varchar(255),
   state_province varchar(255),
   country_id integer NOT NULL,
@@ -37,8 +36,8 @@ CREATE TABLE departments(
 );
 CREATE TABLE employees(
   employee_id SERIAL PRIMARY KEY,
-  first_name varchar(255) NOT NULL,
-  last_name varchar(255) NOT NULL,
+  first_name varchar(255),
+  last_name varchar(255),
   email varchar(255),
   phone_number varchar(10),
   hire_date date,
