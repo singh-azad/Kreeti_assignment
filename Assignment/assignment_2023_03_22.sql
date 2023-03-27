@@ -37,9 +37,9 @@ SELECT first_name,last_name FROM dependents ORDER BY last_name DESC;
 -- From the following table write a SQL query to list every employee that has a manager
 -- with the name of his or her manager. 
 
-SELECT e.first_name,e.last_name,m.first_name,m.last_name FROM employees e INNER JOIN employees m 
-ON e.manager_id = m.employee_id where e.first_name = m.first_name
-AND e.last_name = m.last_name;
+SELECT e.first_name as employee_first_name,e.last_name as employee_last_name,m.first_name manager_first_name,m.last_name manager_last_name 
+FROM employees e INNER JOIN employees m 
+ON e.manager_id = m.employee_id;
 
 -- 6.
 -- Find the departments that have more than 5 employees earning a salary greater than
