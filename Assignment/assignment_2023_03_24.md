@@ -26,7 +26,7 @@ non-primary attribute = `Grade`
 
 The relation is in **1NF** because there is no data given.
 
-The relation is in **2NF** because it is in **1NF** and there is no **patial dependencies**.
+The relation is in **2NF** because it is in **1NF** and there is no **partial dependencies**.
 
 The relation is in **3NF** because their is no transitive dependencies .There is
 no non prime attribute which is dependent on another non prime attribute.
