@@ -24,10 +24,11 @@ in(select d.department_id from employees d where 2 <=
 -- 4.
 -- From the following tables write a query to find all the countries, having cities with all the city
 -- names starting with 'a'.(don’t use joins)
-
+select c.country_id from countries c where
+(select count(l1.city) from locations l1 where l1.country_id = c.country_id) = 
+(select count(l2.city) from locations l2 where l2.country_id = c.country_id and l2.city like 'a%');
 -- 5.
 -- From the following tables write a query to find all the departments, having no cities
 
 SELECT d.department_name FROM departments d WHERE d.location_id IN
 (SELECT l.location_id FROM locations l WHERE l.city IS NULL) OR location_id IS NULL;
-
