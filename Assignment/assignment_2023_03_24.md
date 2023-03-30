@@ -104,7 +104,7 @@ b. Is this relation in Boyce-Codd Normal Form? Is it 3NF? Explain your answers.
 
 ABC<sup>+</sup> = `ABCDEF`
 
-ACD<sup>+</sup> = `ACDFBDE`
+ACD<sup>+</sup> = `ACDFBE`
 
 Candidate key = `ABC, ACD`
 
