@@ -28,21 +28,16 @@ CREATE TABLE locations_info (
 
 
 CREATE TRIGGER locations_transaction
-AFTER INSERT OR UPDATE OR DELETE ON locations
+AFTER INSERT,UPDATE,DELETE ON locations
 FOR EACH ROW 
 BEGIN
-  IF TG_OP = 'INSERT' THEN
+  IF TG_OP = 'DELETE' THEN
     INSERT INTO locations_info (operation, location_id, street_address, pincode, city, state_province, country_id)
-    VALUES ('INSERT', NEW.location_id, NEW.street_address, NEW.pincode, NEW.city, NEW.state_province, NEW.country_id);
-    RETURN NEW;
-  ELSIF TG_OP = 'UPDATE' THEN
+    VALUES (TG_OP, OLD.location_id, OLD.street_address, OLD.pincode, OLD.city, OLD.state_province, OLD.country_id);
+  ELSE
     INSERT INTO locations_info (operation, location_id, street_address, pincode, city, state_province, country_id)
-    VALUES ('UPDATE', NEW.location_id, NEW.street_address, NEW.pincode, NEW.city, NEW.state_province, NEW.country_id);
-    RETURN NEW;
-  ELSE TG_OP = 'DELETE' THEN
-    INSERT INTO locations_info (operation, location_id, street_address, pincode, city, state_province, country_id)
-    VALUES ('DELETE', OLD.location_id, OLD.street_address, OLD.pincode, OLD.city, OLD.state_province, OLD.country_id);
-    RETURN OLD;
+    VALUES (TG_OP, NEW.location_id, NEW.street_address, NEW.pincode, NEW.city, NEW.state_province, NEW.country_id);
+ 
   END IF;
 END;
 
